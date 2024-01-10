@@ -7,13 +7,26 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   cursor: pointer;
+  padding: 16px;
+}
+.articleCardContainer h3 {
+  font-size: 20px;
+  font-weight: 800;
 }
 .pictiresBlock {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  bottom: 0;
+  align-items: flex-end;
   position: relative;
+}
+
+.pictiresBlock span {
+  font-size: 14px;
+  font-weight: 800;
+}
+.image {
+  object-fit: cover;
 }

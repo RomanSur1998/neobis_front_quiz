@@ -27,6 +27,7 @@ const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
               onClick={() => {
                 navigate(navigateLink);
               }}
+              className={styles.arrowICon}
             />
           </button>
 

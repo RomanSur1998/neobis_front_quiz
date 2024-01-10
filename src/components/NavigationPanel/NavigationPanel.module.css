@@ -6,6 +6,7 @@
   margin-bottom: 16px;
   background-image: url("../../assets/icons/fon.svg");
   background-repeat: no-repeat;
+  margin-top: 10px;
 }
 .navigateName {
   color: #000;
@@ -16,4 +17,9 @@
 }
 .navigationArrow {
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.navigationArrow:hover {
+  scale: 1.2;
+  transition: 0.3s ease-in-out;
 }

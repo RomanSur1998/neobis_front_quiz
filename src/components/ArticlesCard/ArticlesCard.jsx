@@ -17,7 +17,9 @@ const ArticlesCard = () => {
         <h3>Жизнь и правление Наполеона Бонапарта </h3>
       </div>
       <div className={styles.pictiresBlock}>
-        <div>#История</div>
+        <div>
+          <span>#История</span>
+        </div>
         <div>
           <img src={example} alt="" className={styles.image} />
         </div>
