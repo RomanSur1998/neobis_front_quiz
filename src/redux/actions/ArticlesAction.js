@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchArticles = createAsyncThunk(
-  "articles/gatAticles",
+  "articles/fetchArticles",
   async (data) => {
     try {
       const response = await api.getAllArctiles(data);
