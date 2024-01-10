@@ -1,0 +1,65 @@
+.modalContainer {
+  width: 353px;
+  background-color: #fff;
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 24px 32px;
+  transition: 0.5s ease-in-out;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerTitle {
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+}
+.headerCancel {
+  color: #939393;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 20px;
+}
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.input {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.formButton {
+  width: 290px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  background-color: #939393;
+  cursor: pointer;
+}
+
+.formButtonBlack {
+  background-color: #000;
+  width: 290px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}

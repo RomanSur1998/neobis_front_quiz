@@ -1,0 +1,19 @@
+.articleCardContainer {
+  background-color: #ffe0a3;
+  width: 265px;
+  height: 235px;
+  border-radius: 8px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+.pictiresBlock {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  position: relative;
+}

@@ -1,0 +1,18 @@
+.QuizPreviewPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  height: 80vh;
+}
+.desription {
+  text-align: center;
+  width: 620px;
+}
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  background-image: url("../../assets/icons/fon.svg");
+  background-repeat: no-repeat;
+}
