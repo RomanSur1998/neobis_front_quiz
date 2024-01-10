@@ -27,7 +27,7 @@ const MainPage = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <ArticlesCard  />
+              <ArticlesCard />
             </SwiperSlide>
             <SwiperSlide>
               <ArticlesCard />

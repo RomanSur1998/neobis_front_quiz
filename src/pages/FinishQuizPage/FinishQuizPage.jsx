@@ -3,8 +3,10 @@ import MainLayout from "../../layouts/MainLayout";
 import Buttton from "../../components/Button/Buttton";
 import fon_right from "../../assets/pictures/fon_right.svg";
 import styles from "./FinishQuizPage.module.css";
+import { useNavigate } from "react-router";
 
 const FinishQuizPage = () => {
+  const navigate = useNavigate();
   return (
     <MainLayout>
       <div className={styles.container}>
