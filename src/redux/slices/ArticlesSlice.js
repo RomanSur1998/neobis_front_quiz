@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { api } from "../../api/api";
+import { fetchArticles } from "../actions/ArticlesAction";
 
 const initialState = {
   articles: [],
@@ -19,12 +21,17 @@ export const articlesSlice = createSlice({
       state.query = action.payload;
     },
     setFilter(state, action) {
-      console.log(action.payload, 'action filter');
+      console.log(action.payload, "action filter");
       state.filter = action.payload;
     },
     setShowFilter(state, action) {
       state.isShowsFilter = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchArticles.fulfilled, (state, action) => {
+      state.articles = action.payload;
+    });
   },
 });
 

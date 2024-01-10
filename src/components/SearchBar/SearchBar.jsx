@@ -20,14 +20,16 @@ const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
     <>
       <div className={styles.container}>
         <div className={styles.containerSection}>
-          <img
-            src={arrow}
-            alt="arrow navigate"
-            onClick={() => {
-              navigate(navigateLink);
-            }}
-            className={styles.navigateArrow}
-          />
+          <button className={styles.navigateArrow}>
+            <img
+              src={arrow}
+              alt="arrow navigate"
+              onClick={() => {
+                navigate(navigateLink);
+              }}
+            />
+          </button>
+
           {!isShowTitle ? <span>Все статьи</span> : null}
         </div>
         {isShowSearch ? (
@@ -43,12 +45,13 @@ const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
                 className={styles.formInput}
               />
             </form>
-            <img
-              src={filter}
-              alt="filter modal"
-              onClick={hadleIsShowModalFilter}
-              className={styles.filteButton}
-            />
+            <button className={styles.filteButton}>
+              <img
+                src={filter}
+                alt="filter modal"
+                onClick={hadleIsShowModalFilter}
+              />
+            </button>
           </div>
         ) : (
           <div> </div>

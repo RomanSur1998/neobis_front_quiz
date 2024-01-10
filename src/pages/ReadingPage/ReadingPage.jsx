@@ -6,15 +6,18 @@ import styles from "./ReadingPage.module.css";
 const ReadingPage = () => {
   return (
     <MainLayout>
-      <div className={styles.readingContainer}>
+      <div>
         <SearchBar
           navigateLink={"/articles"}
           isShowSearch={false}
           isShowTitle={true}
         />
-        <div>
+        <div className={styles.readingContainer}>
+          {" "}
           <h3>Жизнь и правление Наполеона Бонапарта</h3>
-          <span>#История</span>: <span>15 мин</span>
+          <div>
+            <span>#История</span>: <span>15 мин</span>
+          </div>
           <p>
             Наполеон I Бонапарт - французский полководец и государственный
             деятель. Император Франции (1804-1814 и в марте - июне 1815). В 1799

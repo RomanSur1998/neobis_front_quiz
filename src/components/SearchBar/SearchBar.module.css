@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   height: 45px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
   position: relative;
 }
@@ -31,7 +31,11 @@
 }
 .filteButton {
   cursor: pointer;
+  background-color: inherit;
+  border: none;
 }
 .navigateArrow {
   cursor: pointer;
+  background-color: inherit;
+  border: none;
 }

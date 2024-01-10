@@ -19,4 +19,13 @@ export const api = {
       console.log(error, "get Quizes error");
     }
   },
+  getQuestion: async function () {
+    try {
+      const response = await configuretedAxios.get("");
+      console.log(response, "get Quizes");
+      return response;
+    } catch (error) {
+      console.log(error, "get Quizes error");
+    }
+  },
 };
