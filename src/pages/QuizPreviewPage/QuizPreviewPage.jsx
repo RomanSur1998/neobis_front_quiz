@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./QuizPreviewPage.module.css";
 import history_logo from "../../assets/pictures/history_logo.svg";
 import MainLayout from "../../layouts/MainLayout";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Buttton from "../../components/Button/Buttton";
+import { useDispatch } from "react-redux";
+import { setIndexNull } from "../../redux/slices/QuizesSlice";
 
 const QuizPreviewPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setIndexNull(1));
+  }, []);
   return (
     <MainLayout>
       <SearchBar navigateLink={"/quiz"} isShowSearch={false} />

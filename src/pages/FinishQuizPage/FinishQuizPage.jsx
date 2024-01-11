@@ -6,8 +6,7 @@ import styles from "./FinishQuizPage.module.css";
 import { useSelector } from "react-redux";
 
 const FinishQuizPage = () => {
-  const { countRightAnswers, indexBarCount, rightAnswers, selectedAnswer } =
-    useSelector((state) => state.quizes);
+  const { countRightAnswers } = useSelector((state) => state.quizes);
 
   return (
     <MainLayout>

@@ -9,7 +9,7 @@ const QuizCard = () => {
     <div
       className={styles.cardContainer}
       onClick={() => {
-        navigate("/quiz");
+        navigate("/quizsPreview");
       }}
     >
       <div className={styles.cardContent}>

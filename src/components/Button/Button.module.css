@@ -21,25 +21,12 @@
   font-weight: 700;
   cursor: pointer;
 }
-.wrong {
-  width: 360px;
-  height: 50px;
-  background-color: #ef6e6e;
-  border-radius: 8px;
-  color: #000;
-  border: 1px solid #000;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
+
+.button:hover {
+  scale: 1.1;
+  transition: 0.3s ease-in-out;
 }
-.right {
-  width: 360px;
-  height: 50px;
-  background-color: #b9ffa0;
-  border-radius: 8px;
-  color: #000;
-  border: 1px solid #000;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
+.buttonAnswer:hover {
+  scale: 1.1;
+  transition: 0.3s ease-in-out;
 }
