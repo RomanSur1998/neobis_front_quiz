@@ -35,13 +35,13 @@ const AnswersPage = () => {
 
           <Buttton
             text={
-              getPercentBar(5, indexBarCount) === 100
+              getPercentBar(1, indexBarCount) === 100
                 ? "Закончить квиз"
                 : "Следующий вопрос"
             }
             isAnswers={true}
             navigateName={
-              getPercentBar(5, indexBarCount) === 100 ? "/finish" : null
+              getPercentBar(1, indexBarCount) === 100 ? "/finish" : null
             }
             dispatch={dispatch}
           />

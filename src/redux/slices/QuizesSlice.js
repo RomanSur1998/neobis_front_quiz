@@ -3,9 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   quizes: [],
   statusBarPercent: null,
-  rightAnswers: "",
+  rightAnswers: "Вопрос 1",
   selectedAnswer: "",
   indexBarCount: 1,
+  countRightAnswers: 0,
 };
 
 export const quizesSlice = createSlice({

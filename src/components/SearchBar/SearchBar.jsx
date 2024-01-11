@@ -7,15 +7,18 @@ import { useNavigate } from "react-router";
 import ModalFilter from "../ModalFilter/ModalFilter";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowFilter } from "../../redux/slices/ArticlesSlice";
+import { useFormik } from "formik";
 
 const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
-  const { isShowsFilter } = useSelector((state) => state.articles);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isShowsFilter } = useSelector((state) => state.articles);
+
+  // const formik = useFormik();
 
   function hadleIsShowModalFilter() {
     dispatch(setShowFilter(!isShowsFilter));
   }
-  const navigate = useNavigate();
   return (
     <>
       <div className={styles.container}>
@@ -41,6 +44,7 @@ const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
               </label>
               <input
                 type="text"
+                name="search"
                 placeholder="Поиск статей"
                 id="search"
                 className={styles.formInput}

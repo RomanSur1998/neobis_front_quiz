@@ -3,10 +3,12 @@ import MainLayout from "../../layouts/MainLayout";
 import Buttton from "../../components/Button/Buttton";
 import fon_right from "../../assets/pictures/fon_right.svg";
 import styles from "./FinishQuizPage.module.css";
-import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 const FinishQuizPage = () => {
-  const navigate = useNavigate();
+  const { countRightAnswers, indexBarCount, rightAnswers, selectedAnswer } =
+    useSelector((state) => state.quizes);
+
   return (
     <MainLayout>
       <div className={styles.container}>
@@ -18,7 +20,7 @@ const FinishQuizPage = () => {
 
         <div className={styles.block}>
           <h3>Вы ответили правильно на </h3>
-          <span>8 вопросов из 10</span>
+          <span>{countRightAnswers ?? countRightAnswers} вопросов из 10</span>
         </div>
         <p className={styles.description}>
           У вас всегда есть возможность пройти квиз заново, чтобы еще раз
