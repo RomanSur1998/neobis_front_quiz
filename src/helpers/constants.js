@@ -1,1 +1,1 @@
-export const API = "http://aza-production.up.railway.app/api/v1/";
+export const API = "https://aza-production.up.railway.app/api/v1/";
