@@ -6,7 +6,7 @@ import styles from "./FinishQuizPage.module.css";
 import { useSelector } from "react-redux";
 
 const FinishQuizPage = () => {
-  const { countRightAnswers } = useSelector((state) => state.quizes);
+  const { countRightAnswers, questions } = useSelector((state) => state.quizes);
 
   return (
     <MainLayout>
@@ -19,7 +19,10 @@ const FinishQuizPage = () => {
 
         <div className={styles.block}>
           <h3>Вы ответили правильно на </h3>
-          <span>{countRightAnswers ?? countRightAnswers} вопросов из 10</span>
+          <span>
+            {countRightAnswers ?? countRightAnswers} вопросов из{" "}
+            {questions ? questions.length : 10}
+          </span>
         </div>
         <p className={styles.description}>
           У вас всегда есть возможность пройти квиз заново, чтобы еще раз

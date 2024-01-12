@@ -12,10 +12,11 @@ import styles from "./MainPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArticles } from "../../redux/actions/ArticlesAction";
 import { fethcQuizes } from "../../redux/actions/QuizAction";
+import { LinearProgress } from "@mui/material";
 
 const MainPage = () => {
   const dispatch = useDispatch();
-  const { articles } = useSelector((state) => state.articles);
+  const { articles, isLoadind } = useSelector((state) => state.articles);
   const { quizes } = useSelector((state) => state.quizes);
   console.log(quizes, "quizes");
 
@@ -31,21 +32,25 @@ const MainPage = () => {
           navigateLink={"/articles"}
         />
         <section>
-          <Swiper
-            slidesPerView={3.5}
-            spaceBetween={16}
-            grabCursor={true}
-            modules={[Pagination]}
-            className="mySwiper"
-          >
-            {articles?.map((item, index) => {
-              return (
-                <SwiperSlide key={index}>
-                  <ArticlesCard item={item} key={index} />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
+          {isLoadind ? (
+            <LinearProgress />
+          ) : (
+            <Swiper
+              slidesPerView={3.5}
+              spaceBetween={16}
+              grabCursor={true}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              {articles?.map((item, index) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <ArticlesCard item={item} key={index} />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          )}
         </section>
         <NavigationPanel navigateBlockName={"Квизы"} navigateLink={"/quiz"} />
         <section className={styles.quizContainer}>

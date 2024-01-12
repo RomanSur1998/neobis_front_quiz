@@ -52,6 +52,7 @@ export const articlesSlice = createSlice({
     builder.addCase(fetchFilterArticles.fulfilled, (state, action) => {
       state.articles = action.payload;
       state.isLoadind = false;
+      state.isShowsFilter = false;
     });
     builder.addCase(fetchFilterArticles.pending, (state, action) => {
       state.isLoadind = true;

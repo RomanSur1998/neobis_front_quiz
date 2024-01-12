@@ -11,19 +11,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { getAnswer } from "../../functions/getAnswer";
 
-const Buttton = ({
-  text,
-  isAnswers,
-  navigateName,
-  isWrong,
-  isRight,
-  isValue,
-}) => {
+const Buttton = ({ text, isAnswers, navigateName, rightAnswers, isValue }) => {
   const [color, setColor] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { rightAnswers, isTouched, countRightAnswers, indexBarCount } =
-    useSelector((state) => state.quizes);
+  const { isTouched, countRightAnswers, indexBarCount } = useSelector(
+    (state) => state.quizes
+  );
 
   useEffect(() => {
     setColor("");
@@ -40,7 +34,7 @@ const Buttton = ({
       dispatch(rightAnswers === isValue ? setcountRightAnswers() : null);
     } else if (!isValue && dispatch) {
       dispatch(setIndexBarCount());
-      dispatch(setRightAnswers("Вопрос 5"));
+      dispatch(setRightAnswers(rightAnswers));
       dispatch(setIsTouched(false));
     }
   };

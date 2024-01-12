@@ -1,16 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fethcQuizes } from "../actions/QuizAction";
+import { fetchQuestions, fethcQuizes } from "../actions/QuizAction";
 
 const initialState = {
   quizes: [],
   statusBarPercent: null,
-  rightAnswers: "Вопрос 4",
+  rightAnswers: "",
   selectedAnswer: "",
   indexBarCount: 1,
   countRightAnswers: 0,
   isTrue: false,
   isTouched: false,
   isLoading: false,
+  questions: [],
 };
 
 export const quizesSlice = createSlice({
@@ -45,6 +46,14 @@ export const quizesSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(fethcQuizes.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchQuestions.fulfilled, (state, action) => {
+      state.questions = action.payload;
+      state.rightAnswers = action.payload[0].answerTrue;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchQuestions.pending, (state, action) => {
       state.isLoading = true;
     });
   },

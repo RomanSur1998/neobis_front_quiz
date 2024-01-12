@@ -16,18 +16,15 @@ const ModalFilter = () => {
       input: null,
     },
     onSubmit: (values) => {
+      dispatch(
+        fetchFilterArticles({ searchParam: "", filterParam: values.input })
+      );
       dispatch(setFilter(values.input));
-      dispatch(setShowFilter(!isShowsFilter));
-      getFilter();
     },
     validationSchema: yup.object({
       input: yup.string().required(),
     }),
   });
-
-  function getFilter() {
-    dispatch(fetchFilterArticles({ searchParam: "", filterParam: filter }));
-  }
 
   return (
     <div className={styles.modalContainer}>

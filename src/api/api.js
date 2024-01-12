@@ -61,4 +61,15 @@ export const api = {
       console.log(error, "get Text error");
     }
   },
+  getQuestions: async function (name) {
+    try {
+      const response = await configuretedAxios.get(
+        `quizzes/questions?name=${name}`
+      );
+      console.log(response, "get quiestion");
+      return response;
+    } catch (error) {
+      console.log(error, "get Questions error");
+    }
+  },
 };

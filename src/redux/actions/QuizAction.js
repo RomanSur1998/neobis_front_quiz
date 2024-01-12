@@ -13,3 +13,15 @@ export const fethcQuizes = createAsyncThunk(
     }
   }
 );
+export const fetchQuestions = createAsyncThunk(
+  "quizes/fetchQuestions",
+  async (data) => {
+    try {
+      const response = await api.getQuestions(data);
+      console.log(response, "get question");
+      return response.data;
+    } catch (error) {
+      console.log(error, "error get quizes ");
+    }
+  }
+);

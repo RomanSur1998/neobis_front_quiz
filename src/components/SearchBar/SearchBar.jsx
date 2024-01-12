@@ -39,9 +39,9 @@ const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
         {isShowSearch ? (
           <div className={styles.containerSection}>
             <form className={styles.containerForm}>
-              <label htmlFor="search">
+              <button className={styles.searchButton}>
                 <img src={search} alt="" />
-              </label>
+              </button>
               <input
                 type="text"
                 name="search"
