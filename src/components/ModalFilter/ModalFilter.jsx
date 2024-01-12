@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFilter, setShowFilter } from "../../redux/slices/ArticlesSlice";
 import * as yup from "yup";
 import styles from "./ModalFilter.module.css";
+import { fetchFilterArticles } from "../../redux/actions/ArticlesAction";
 
 const ModalFilter = () => {
   const { filter, isShowsFilter } = useSelector((state) => state.articles);
@@ -15,16 +16,18 @@ const ModalFilter = () => {
       input: null,
     },
     onSubmit: (values) => {
-      console.log(values.input, "values");
       dispatch(setFilter(values.input));
       dispatch(setShowFilter(!isShowsFilter));
+      getFilter();
     },
     validationSchema: yup.object({
       input: yup.string().required(),
     }),
   });
 
-  console.log(filter, "filter");
+  function getFilter() {
+    dispatch(fetchFilterArticles({ searchParam: "", filterParam: filter }));
+  }
 
   return (
     <div className={styles.modalContainer}>
@@ -43,8 +46,8 @@ const ModalFilter = () => {
               className={styles.input}
               name="input"
               onChange={formik.handleChange}
-              checked={formik.values.input === elem.title}
-              value={elem.title}
+              checked={formik.values.input === elem.value}
+              value={elem.value}
             />
             <span>{elem.title}</span>
           </label>

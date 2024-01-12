@@ -1,5 +1,5 @@
 export const checkboxName = [
-  { title: "История", id: 1, value: "" },
+  { title: "История", id: 1, value: "HISTORY" },
   { title: "Литература", id: 2, value: "" },
   { title: "Философия", id: 3, value: "" },
   { title: "Психология", id: 4, value: "" },

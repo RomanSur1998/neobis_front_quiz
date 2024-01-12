@@ -41,7 +41,7 @@ const QuizPage = () => {
             </div>
           ) : (
             <>
-              {quizes.map((item) => {
+              {quizes?.map((item) => {
                 return (
                   <SwiperSlide>
                     <QuizPreview

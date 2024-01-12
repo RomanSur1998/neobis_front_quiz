@@ -13,7 +13,7 @@ const ArticlesCard = ({ item }) => {
       }}
       className={styles.articleCardContainer}
       onClick={() => {
-        navigation("/reading/:id");
+        navigation(`/reading/${item.name}`);
       }}
     >
       <div>

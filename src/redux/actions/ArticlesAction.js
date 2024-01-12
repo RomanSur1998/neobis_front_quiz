@@ -27,3 +27,15 @@ export const fetchTextArticles = createAsyncThunk(
     }
   }
 );
+export const fetchFilterArticles = createAsyncThunk(
+  "articles/fetchFilterArticles",
+  async ({ searchParam, filterParam }) => {
+    try {
+      const response = await api.getFilterArticles(searchParam, filterParam);
+      console.log(response, "get filter and search articles");
+      return response.data;
+    } catch (error) {
+      console.log(error, "error filter and search articles");
+    }
+  }
+);

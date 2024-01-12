@@ -39,6 +39,17 @@ export const api = {
       console.log(error, "get Quizes error");
     }
   },
+  getFilterArticles: async function (searchParam, filterParam) {
+    try {
+      const response = await configuretedAxios.get(
+        `articles/get?name=${searchParam}&genre=${filterParam}`
+      );
+      console.log(response, "get Quizes");
+      return response;
+    } catch (error) {
+      console.log(error, "get Quizes error");
+    }
+  },
   getText: async function (name) {
     try {
       const response = await configuretedAxios.get(

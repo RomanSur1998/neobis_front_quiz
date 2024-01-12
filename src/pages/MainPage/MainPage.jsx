@@ -38,10 +38,10 @@ const MainPage = () => {
             modules={[Pagination]}
             className="mySwiper"
           >
-            {articles.map((item) => {
+            {articles?.map((item, index) => {
               return (
-                <SwiperSlide>
-                  <ArticlesCard item={item} key={item.name} />
+                <SwiperSlide key={index}>
+                  <ArticlesCard item={item} key={index} />
                 </SwiperSlide>
               );
             })}
@@ -49,8 +49,8 @@ const MainPage = () => {
         </section>
         <NavigationPanel navigateBlockName={"Квизы"} navigateLink={"/quiz"} />
         <section className={styles.quizContainer}>
-          {quizes.map((item) => {
-            return <QuizCard item={item} key={item.name} />;
+          {quizes?.map((item, index) => {
+            return <QuizCard item={item} key={index} />;
           })}
         </section>
       </div>

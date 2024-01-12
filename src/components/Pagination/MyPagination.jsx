@@ -12,11 +12,13 @@ const MyPagination = ({ lengthPagination }) => {
     dispatch(setPage(page));
   };
 
+  const num = Math.ceil(lengthPagination / 2);
+
   return (
     <>
       <Stack spacing={2} style={{ margin: "40px auto" }}>
         <Pagination
-          count={lengthPagination}
+          count={num ? num : 1}
           page={page}
           onChange={(_, num) => {
             handleChangePage(num);
