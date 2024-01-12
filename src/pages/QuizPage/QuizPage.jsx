@@ -19,6 +19,8 @@ const QuizPage = () => {
     dispatch(fethcQuizes());
   }, []);
 
+  console.log(quizes, "quizes Block");
+
   return (
     <MainLayout>
       <SearchBar navigateLink={"/"} isShowSearch={false} />

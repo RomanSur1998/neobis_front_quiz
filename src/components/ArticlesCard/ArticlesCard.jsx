@@ -2,13 +2,16 @@ import React from "react";
 import example from "../../assets/pictures/articles_card_example.png";
 import styles from "./ArticlesCard.module.css";
 import { useNavigate } from "react-router";
+import { getColor } from "../../helpers/getColor";
 
 const ArticlesCard = ({ item }) => {
   const navigation = useNavigate();
   return (
     <div
+      style={{
+        background: getColor[item.colorId],
+      }}
       className={styles.articleCardContainer}
-      style={{}}
       onClick={() => {
         navigation("/reading/:id");
       }}

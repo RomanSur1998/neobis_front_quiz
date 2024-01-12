@@ -39,4 +39,15 @@ export const api = {
       console.log(error, "get Quizes error");
     }
   },
+  getText: async function (name) {
+    try {
+      const response = await configuretedAxios.get(
+        `articles/description?name=${name}`
+      );
+      console.log(response, "get Text");
+      return response;
+    } catch (error) {
+      console.log(error, "get Text error");
+    }
+  },
 };

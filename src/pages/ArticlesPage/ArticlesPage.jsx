@@ -27,7 +27,7 @@ const ArticlesPage = () => {
             return <ArticlesPreviewCard item={item} />;
           })}
         </div>
-        <MyPagination />
+        <MyPagination lengthPagination={articles[0]?.size} />
       </section>
     </MainLayout>
   );

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { api } from "../../api/api";
-import { fetchArticles } from "../actions/ArticlesAction";
+import { fetchArticles, fetchTextArticles } from "../actions/ArticlesAction";
 
 const initialState = {
   articles: [],
@@ -8,6 +8,8 @@ const initialState = {
   query: "",
   filter: null,
   isShowsFilter: false,
+  articlesText: "",
+  isLoadind: false,
 };
 
 export const articlesSlice = createSlice({
@@ -31,6 +33,13 @@ export const articlesSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchArticles.fulfilled, (state, action) => {
       state.articles = action.payload;
+    });
+    builder.addCase(fetchTextArticles.fulfilled, (state, action) => {
+      state.articlesText = action.payload;
+      state.isLoadind = false;
+    });
+    builder.addCase(fetchTextArticles.pending, (state, action) => {
+      state.isLoadind = true;
     });
   },
 });

@@ -14,3 +14,16 @@ export const fetchArticles = createAsyncThunk(
     }
   }
 );
+export const fetchTextArticles = createAsyncThunk(
+  "articles/fetchTextArticles",
+  async (name) => {
+    try {
+      const response = await api.getText(name);
+
+      console.log(response, "get all articles");
+      return response.data;
+    } catch (error) {
+      console.log(error, "error get articles");
+    }
+  }
+);
