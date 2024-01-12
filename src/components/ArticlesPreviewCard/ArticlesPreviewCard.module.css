@@ -1,6 +1,7 @@
 .container {
   background-color: aquamarine;
-  width: 500px;
+  max-width: 500px;
+  width: 49%;
   height: 160px;
   border-radius: 8px;
   border: 2px solid black;
@@ -14,4 +15,15 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+.title {
+  width: 200px;
+}
+.image {
+  width: 205px;
+  height: 150px;
+  object-fit: cover;
+  object-position: top;
+  padding: 5px;
+  border-radius: 10px;
 }

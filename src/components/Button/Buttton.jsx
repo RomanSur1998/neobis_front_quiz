@@ -3,6 +3,7 @@ import styles from "./Button.module.css";
 import { useNavigate } from "react-router";
 import {
   setIndexBarCount,
+  setIsTouched,
   setRightAnswers,
   setSelectAnswer,
   setcountRightAnswers,
@@ -21,7 +22,7 @@ const Buttton = ({
   const [color, setColor] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { rightAnswers, selectedAnswer, countRightAnswers, indexBarCount } =
+  const { rightAnswers, isTouched, countRightAnswers, indexBarCount } =
     useSelector((state) => state.quizes);
 
   useEffect(() => {
@@ -33,12 +34,14 @@ const Buttton = ({
     dispatch(setSelectAnswer(isValue));
     if (navigateName) {
       navigate(navigateName);
-    } else if (isValue) {
+    } else if (isValue && !isTouched) {
+      dispatch(setIsTouched(true));
       setColor(rightAnswers === isValue ? "#B9FFA0" : "#EF6E6E");
       dispatch(rightAnswers === isValue ? setcountRightAnswers() : null);
     } else if (!isValue && dispatch) {
       dispatch(setIndexBarCount());
       dispatch(setRightAnswers("Вопрос 5"));
+      dispatch(setIsTouched(false));
     }
   };
 

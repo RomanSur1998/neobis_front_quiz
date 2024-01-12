@@ -3,7 +3,7 @@ import example from "../../assets/pictures/articles_card_example.png";
 import styles from "./ArticlesCard.module.css";
 import { useNavigate } from "react-router";
 
-const ArticlesCard = () => {
+const ArticlesCard = ({ item }) => {
   const navigation = useNavigate();
   return (
     <div
@@ -14,14 +14,14 @@ const ArticlesCard = () => {
       }}
     >
       <div>
-        <h3>Жизнь и правление Наполеона Бонапарта </h3>
+        <h3>{item.name}</h3>
       </div>
       <div className={styles.pictiresBlock}>
         <div>
-          <span>#История</span>
+          <span>#{item.genre}</span>
         </div>
         <div>
-          <img src={example} alt="" className={styles.image} />
+          <img src={item.imageUrl} alt="image" className={styles.image} />
         </div>
       </div>
     </div>

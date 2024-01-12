@@ -9,7 +9,7 @@ import { getPercentBar } from "../../functions/getPercentBar";
 import { useDispatch, useSelector } from "react-redux";
 
 const AnswersPage = () => {
-  const { indexBarCount, rightAnswers, selectedAnswer } = useSelector(
+  const { indexBarCount, selectedAnswer } = useSelector(
     (state) => state.quizes
   );
   const dispatch = useDispatch();

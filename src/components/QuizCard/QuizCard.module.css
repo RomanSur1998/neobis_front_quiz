@@ -17,3 +17,13 @@
   justify-content: center;
   gap: 10px;
 }
+.image {
+  width: 128px;
+  height: 129px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.title {
+  width: 80%;
+  text-align: center;
+}

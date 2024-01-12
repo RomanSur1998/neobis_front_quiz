@@ -6,6 +6,8 @@
   justify-content: center;
   gap: 20px;
   cursor: pointer;
+  height: 620px;
+  margin: 0 auto;
 }
 
 .content {
@@ -19,19 +21,21 @@
   align-items: center;
   gap: 20px;
   box-shadow: 0px -2px 8px 8px #ff9494;
-  transition: 0.3s ease-in-out;
-}
-.content:hover {
-  scale: 1.02;
-  transition: 0.3s ease-in-out;
 }
 
 .title {
   font-size: 40px;
   font-weight: 800;
+  text-align: center;
 }
 .questionNum {
   font-size: 20px;
-
   font-weight: 600;
+}
+.image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  /* object-position: top; */
+  border-radius: 10px;
 }

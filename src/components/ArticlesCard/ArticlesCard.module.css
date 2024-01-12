@@ -12,7 +12,8 @@
   padding: 16px;
 }
 .articleCardContainer h3 {
-  font-size: 20px;
+  width: 230px;
+  /* font-size: 20px; */
   font-weight: 800;
 }
 .pictiresBlock {
@@ -26,7 +27,11 @@
 .pictiresBlock span {
   font-size: 14px;
   font-weight: 800;
+  object-fit: cover;
 }
 .image {
+  width: 125px;
+  height: 132px;
   object-fit: cover;
+  border-radius: 8px;
 }

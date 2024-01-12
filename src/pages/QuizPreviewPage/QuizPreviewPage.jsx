@@ -16,7 +16,7 @@ const QuizPreviewPage = () => {
     <MainLayout>
       <SearchBar navigateLink={"/quiz"} isShowSearch={false} />
       <div className={styles.QuizPreviewPageContainer}>
-        <h2 className={styles.title}>Квиз "История"</h2>
+        <h2 className={styles.title}>Квиз </h2>
         <img src={history_logo} alt="" />
         <p className={styles.desription}>
           Добро пожаловать на квиз по истории. Это увлекательное путешествие

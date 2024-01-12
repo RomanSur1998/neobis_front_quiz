@@ -3,7 +3,7 @@ import example from "../../assets/pictures/guiz_card_example.svg";
 import styles from "./QuizCard.module.css";
 import { useNavigate } from "react-router";
 
-const QuizCard = () => {
+const QuizCard = ({ item }) => {
   const navigate = useNavigate();
   return (
     <div
@@ -13,8 +13,8 @@ const QuizCard = () => {
       }}
     >
       <div className={styles.cardContent}>
-        <img src={example} alt="card icon" />
-        <h3>История</h3>
+        <img src={item.imageUrl} alt="card icon" className={styles.image} />
+        <h3 className={styles.title}>{item.name}</h3>
         <span>10 вопросов</span>
       </div>
     </div>

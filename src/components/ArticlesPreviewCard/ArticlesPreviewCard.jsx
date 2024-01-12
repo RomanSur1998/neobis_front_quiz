@@ -4,7 +4,7 @@ import styles from "./ArticlesPreviewCard.module.css";
 import { articleImage } from "../../helpers/getArcticleImage";
 import { useNavigate } from "react-router";
 
-const ArticlesPreviewCard = () => {
+const ArticlesPreviewCard = ({ item }) => {
   const navigate = useNavigate();
   return (
     <div
@@ -14,16 +14,14 @@ const ArticlesPreviewCard = () => {
       }}
     >
       <div className={styles.textBlock}>
-        <h3>
-          Философия <br /> Аристотеля
-        </h3>
+        <h3 className={styles.title}>Философия Аристотеля</h3>
         <div>
-          <span>#Философия</span>:<span>15 минут </span>
+          <span>#{item.genre}</span>:<span>15 минут </span>
         </div>
       </div>
       <div>
         {/* <img src={example} alt="" /> */}
-        <img src={articleImage["Философия"]} alt="" />
+        <img src={item.imageUrl} alt="card image" className={styles.image} />
       </div>
     </div>
   );

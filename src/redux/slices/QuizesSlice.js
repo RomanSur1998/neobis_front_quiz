@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fethcQuizes } from "../actions/QuizAction";
 
 const initialState = {
   quizes: [],
@@ -8,6 +9,8 @@ const initialState = {
   indexBarCount: 1,
   countRightAnswers: 0,
   isTrue: false,
+  isTouched: false,
+  isLoading: false,
 };
 
 export const quizesSlice = createSlice({
@@ -32,6 +35,18 @@ export const quizesSlice = createSlice({
     setRightAnswers(state, action) {
       state.rightAnswers = action.payload;
     },
+    setIsTouched(state, action) {
+      state.isTouched = action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fethcQuizes.fulfilled, (state, action) => {
+      state.quizes = action.payload.data;
+      state.isLoading = false;
+    });
+    builder.addCase(fethcQuizes.pending, (state, action) => {
+      state.isLoading = true;
+    });
   },
 });
 
@@ -42,5 +57,6 @@ export const {
   setcountRightAnswers,
   setIndexNull,
   setRightAnswers,
+  setIsTouched,
 } = quizesSlice.actions;
 export default quizesSlice.reducer;

@@ -1,13 +1,13 @@
-.containerWrap {
+/* .containerWrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   top: 300px;
-  /* width: 900px; */
+  width: 900px;
   margin: 0 auto;
-}
+} */
 
 .paginationBlock {
   margin: 20px auto;

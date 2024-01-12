@@ -1,45 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import QuizCard from "../../components/QuizCard/QuizCard";
-import Carousel from "react-spring-3d-carousel";
-import { config } from "react-spring";
-import styles from "./QuizPage.module.css";
 import QuizPreview from "../../components/QuizPreview/QuizPreview";
+import { useDispatch, useSelector } from "react-redux";
+import { fethcQuizes } from "../../redux/actions/QuizAction";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import styles from "./QuizPage.module.css";
+import { LinearProgress } from "@mui/material";
 
 const QuizPage = () => {
-  const slides = [
-    { key: 4, content: <QuizPreview /> },
-    { key: 3, content: <QuizPreview /> },
-    {
-      key: 2,
-      content: <QuizPreview />,
-    },
-    {
-      key: 1,
-      content: <QuizPreview />,
-    },
-  ];
-  const table = slides.map((element, index) => {
-    return { ...element, onClick: () => setGoToSlide(index) };
-  });
-  const [goToSlide, setGoToSlide] = useState();
-  const [cards] = useState(table);
+  const { quizes, isLoading } = useSelector((state) => state.quizes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fethcQuizes());
+  }, []);
 
   return (
     <MainLayout>
-      {/* <section> */}
       <SearchBar navigateLink={"/"} isShowSearch={false} />
-      <div style={{ width: 900, height: "80vh", margin: "0 auto" }}>
-        <Carousel
-          slides={cards}
-          goToSlide={goToSlide}
-          offsetRadius={2}
-          showNavigation={false}
-          animationConfig={config.gentle}
-        />
+      <div className={styles.cardContainer}>
+        <Swiper
+          slidesPerView={1}
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+          style={{
+            "--swiper-navigation-color": "#000",
+            "--swiper-pagination-color": "#00",
+          }}
+        >
+          {isLoading ? (
+            <div>
+              <LinearProgress />
+            </div>
+          ) : (
+            <>
+              {quizes.map((item) => {
+                return (
+                  <SwiperSlide>
+                    <QuizPreview
+                      key={item.imageUrl}
+                      imageUrl={item.imageUrl}
+                      name={item.name}
+                      item={item}
+                      colorId={item.colorId}
+                    />
+                  </SwiperSlide>
+                );
+              })}
+            </>
+          )}
+        </Swiper>
       </div>
-      {/* </section> */}
     </MainLayout>
   );
 };
