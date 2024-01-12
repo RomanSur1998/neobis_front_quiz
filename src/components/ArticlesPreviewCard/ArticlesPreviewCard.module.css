@@ -1,7 +1,6 @@
 .container {
   background-color: aquamarine;
-  max-width: 500px;
-  width: 49%;
+  width: min(48%, 520px);
   height: 160px;
   border-radius: 8px;
   border: 2px solid black;

@@ -8,7 +8,9 @@ import styles from "./ModalFilter.module.css";
 import { fetchFilterArticles } from "../../redux/actions/ArticlesAction";
 
 const ModalFilter = () => {
-  const { filter, isShowsFilter } = useSelector((state) => state.articles);
+  const { filter, isShowsFilter, query } = useSelector(
+    (state) => state.articles
+  );
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -17,7 +19,7 @@ const ModalFilter = () => {
     },
     onSubmit: (values) => {
       dispatch(
-        fetchFilterArticles({ searchParam: "", filterParam: values.input })
+        fetchFilterArticles({ searchParam: query, filterParam: values.input })
       );
       dispatch(setFilter(values.input));
     },

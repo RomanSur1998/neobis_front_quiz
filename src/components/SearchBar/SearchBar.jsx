@@ -1,21 +1,35 @@
 import React, { useState } from "react";
 import arrow from "../../assets/icons/arrow_left.svg";
-import filter from "../../assets/icons/filter_button.svg";
+import filterIcon from "../../assets/icons/filter_button.svg";
 import search from "../../assets/icons/search_icon.svg";
 import styles from "./SearchBar.module.css";
 import { useNavigate } from "react-router";
 import ModalFilter from "../ModalFilter/ModalFilter";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowFilter } from "../../redux/slices/ArticlesSlice";
+import { setQuery, setShowFilter } from "../../redux/slices/ArticlesSlice";
 import { useFormik } from "formik";
+import { fetchFilterArticles } from "../../redux/actions/ArticlesAction";
 
 const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isShowsFilter } = useSelector((state) => state.articles);
+  const { isShowsFilter, query, filter } = useSelector(
+    (state) => state.articles
+  );
 
-  // const formik = useFormik();
+  const formik = useFormik({
+    initialValues: {
+      search: "",
+    },
+    onSubmit: (values) => {
+      dispatch(setQuery(values.search));
+      dispatch(
+        fetchFilterArticles({ searchParam: values.search, filterParam: filter })
+      );
+    },
+  });
 
+  console.log(query, "query");
   function hadleIsShowModalFilter() {
     dispatch(setShowFilter(!isShowsFilter));
   }
@@ -38,9 +52,12 @@ const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
         </div>
         {isShowSearch ? (
           <div className={styles.containerSection}>
-            <form className={styles.containerForm}>
-              <button className={styles.searchButton}>
-                <img src={search} alt="" />
+            <form
+              className={styles.containerForm}
+              onSubmit={formik.handleSubmit}
+            >
+              <button className={styles.searchButton} type="submit">
+                <img src={search} alt="search icon " />
               </button>
               <input
                 type="text"
@@ -48,11 +65,13 @@ const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
                 placeholder="Поиск статей"
                 id="search"
                 className={styles.formInput}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
             </form>
             <button className={styles.filteButton}>
               <img
-                src={filter}
+                src={filterIcon}
                 alt="filter modal"
                 onClick={hadleIsShowModalFilter}
               />

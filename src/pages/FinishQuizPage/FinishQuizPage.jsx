@@ -4,9 +4,12 @@ import Buttton from "../../components/Button/Buttton";
 import fon_right from "../../assets/pictures/fon_right.svg";
 import styles from "./FinishQuizPage.module.css";
 import { useSelector } from "react-redux";
+import { getAnswer } from "../../functions/getAnswer";
+import { getPercentBar } from "../../functions/getPercentBar";
 
 const FinishQuizPage = () => {
   const { countRightAnswers, questions } = useSelector((state) => state.quizes);
+  const newRess = getPercentBar(questions.length, countRightAnswers);
 
   return (
     <MainLayout>

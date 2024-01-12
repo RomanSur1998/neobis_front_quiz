@@ -35,7 +35,7 @@ const ReadingPage = () => {
             <div>
               <span>#{articlesText?.genre}</span>: <span>10 min</span>
             </div>
-            <p>{articlesText?.description}</p>
+            <p className={styles.text}>{articlesText?.description}</p>
           </div>
         )}
       </div>
