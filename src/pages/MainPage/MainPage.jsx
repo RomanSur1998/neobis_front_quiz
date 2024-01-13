@@ -59,7 +59,6 @@ const MainPage = () => {
           })}
         </section>
       </div>
-      ;
     </MainLayout>
   );
 };

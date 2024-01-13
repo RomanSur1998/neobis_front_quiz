@@ -12,6 +12,14 @@
   align-items: center;
   gap: 10px;
 }
+.nav {
+  width: 200px;
+  height: 45px;
+  font-size: 32px;
+  font-weight: 700;
+  background-image: url("../../assets/icons/fon.svg");
+  background-repeat: no-repeat;
+}
 .containerForm {
   display: flex;
   align-items: center;

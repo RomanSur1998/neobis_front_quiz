@@ -8,9 +8,7 @@ import styles from "./ModalFilter.module.css";
 import { fetchFilterArticles } from "../../redux/actions/ArticlesAction";
 
 const ModalFilter = () => {
-  const { filter, isShowsFilter, query } = useSelector(
-    (state) => state.articles
-  );
+  const { query } = useSelector((state) => state.articles);
   const dispatch = useDispatch();
 
   const formik = useFormik({

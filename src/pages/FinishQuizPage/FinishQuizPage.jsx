@@ -9,7 +9,6 @@ import { getPercentBar } from "../../functions/getPercentBar";
 
 const FinishQuizPage = () => {
   const { countRightAnswers, questions } = useSelector((state) => state.quizes);
-  const newRess = getPercentBar(questions.length, countRightAnswers);
 
   return (
     <MainLayout>

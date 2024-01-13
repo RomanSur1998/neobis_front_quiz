@@ -48,7 +48,7 @@ const SearchBar = ({ navigateLink, isShowSearch, isShowTitle }) => {
             />
           </button>
 
-          {!isShowTitle ? <span>Все статьи</span> : null}
+          {!isShowTitle ? <span className={styles.nav}>Все статьи</span> : null}
         </div>
         {isShowSearch ? (
           <div className={styles.containerSection}>
