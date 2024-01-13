@@ -31,4 +31,4 @@ const ArticlesCard = ({ item }) => {
   );
 };
 
-export default ArticlesCard;
+export default React.memo(ArticlesCard);

@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Button.module.css";
 import { useNavigate } from "react-router";
-import {
-  setIndexBarCount,
-  setIsTouched,
-  setRightAnswers,
-  setSelectAnswer,
-  setcountRightAnswers,
-} from "../../redux/slices/QuizesSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { getAnswer } from "../../functions/getAnswer";
+import { handleClick } from "../../functions/handleClick";
+import styles from "./Button.module.css";
 
 const Buttton = ({ text, isAnswers, navigateName, rightAnswers, isValue }) => {
   const [color, setColor] = useState("");
@@ -22,29 +15,23 @@ const Buttton = ({ text, isAnswers, navigateName, rightAnswers, isValue }) => {
   useEffect(() => {
     setColor("");
   }, [indexBarCount]);
-  console.log(countRightAnswers, "count right");
-
-  const handleClick = (e) => {
-    dispatch(setSelectAnswer(isValue));
-    if (navigateName) {
-      navigate(navigateName);
-    } else if (isValue && !isTouched) {
-      dispatch(setIsTouched(true));
-      setColor(rightAnswers === isValue ? "#B9FFA0" : "#EF6E6E");
-      dispatch(rightAnswers === isValue ? setcountRightAnswers() : null);
-    } else if (!isValue && dispatch) {
-      dispatch(setIndexBarCount());
-      dispatch(setRightAnswers(rightAnswers));
-      dispatch(setIsTouched(false));
-    }
-  };
 
   return (
     <div>
       <button
         className={isAnswers ? styles.button : styles.buttonAnswer}
         value={isValue}
-        onClick={handleClick}
+        onClick={() =>
+          handleClick(
+            isValue,
+            navigateName,
+            rightAnswers,
+            dispatch,
+            navigate,
+            isTouched,
+            setColor
+          )
+        }
         style={{ background: color }}
       >
         {text}
@@ -53,4 +40,4 @@ const Buttton = ({ text, isAnswers, navigateName, rightAnswers, isValue }) => {
   );
 };
 
-export default Buttton;
+export default React.memo(Buttton);

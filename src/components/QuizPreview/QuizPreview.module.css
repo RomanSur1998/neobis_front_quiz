@@ -40,3 +40,26 @@
   /* object-position: top; */
   border-radius: 10px;
 }
+
+/* @media (max-width: 320px) {
+  .container {
+    width: 100%;
+  }
+  .content {
+    width: 250px;
+    height: 300p;
+  }
+  .image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+  
+    border-radius: 10px;
+  }
+  .title {
+    font-size: 20px;
+    width: 90%;
+    font-weight: 800;
+    text-align: center;
+  }
+} */

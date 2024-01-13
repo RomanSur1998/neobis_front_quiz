@@ -30,4 +30,4 @@ const ArticlesPreviewCard = ({ item }) => {
   );
 };
 
-export default ArticlesPreviewCard;
+export default React.memo(ArticlesPreviewCard);
